@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # MacPorts Installer addition on 2015-02-27_at_17:23:54: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
+=======
+>>>>>>> 464a5c5... updated bashrc and bash profiles
 #Git branch in prompt.
 parse_git_branch() {
 
