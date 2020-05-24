@@ -8,7 +8,7 @@
 [color]
     ui = auto
     
-[color]
+[color "branch"]
     current = yellow reverse
     local = yellow
     remote = green
