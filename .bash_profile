@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# MacPorts Installer addition on 2015-02-27_at_17:23:54: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-
-=======
->>>>>>> 464a5c5... updated bashrc and bash profiles
-#Git branch in prompt.
 parse_git_branch() {
 
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -19,5 +12,4 @@ source $(brew --prefix nvm)/nvm.sh
 
 # MacPorts Installer addition on 2016-11-20_at_18:12:17: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
