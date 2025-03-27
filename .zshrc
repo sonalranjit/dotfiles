@@ -1,84 +1,38 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/sonal/.oh-my-zsh
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# PROMPT
-SPACESHIP_PROMPT_SYMBOL='➔'
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_TRUNC=3
-
-# PREFIXES
-SPACESHIP_PREFIX_SHOW=true
-SPACESHIP_PREFIX_HOST=' at '
-SPACESHIP_PREFIX_DIR=' in '
-SPACESHIP_PREFIX_GIT=' on '
-SPACESHIP_PREFIX_ENV_DEFAULT=' via '
-SPACESHIP_PREFIX_NVM=$SPACESHIP_PREFIX_ENV_DEFAULT
-SPACESHIP_PREFIX_RUBY=$SPACESHIP_PREFIX_ENV_DEFAULT
-SPACESHIP_PREFIX_XCODE=$SPACESHIP_PREFIX_ENV_DEFAULT
-SPACESHIP_PREFIX_SWIFT=$SPACESHIP_PREFIX_ENV_DEFAULT
-SPACESHIP_PREFIX_VENV=$SPACESHIP_PREFIX_ENV_DEFAULT
-SPACESHIP_PREFIX_PYENV=$SPACESHIP_PREFIX_ENV_DEFAULT
-
-# GIT
-SPACESHIP_GIT_SHOW=true
-SPACESHIP_GIT_UNCOMMITTED='+'
-SPACESHIP_GIT_UNSTAGED='!'
-SPACESHIP_GIT_UNTRACKED='?'
-SPACESHIP_GIT_STASHED='$'
-SPACESHIP_GIT_UNPULLED='⇣'
-SPACESHIP_GIT_UNPUSHED='⇡'
-
-# NVM
-SPACESHIP_NVM_SHOW=true
-SPACESHIP_NVM_SYMBOL='⬢'
-
-# RUBY
-SPACESHIP_RUBY_SHOW=false
-SPACESHIP_RUBY_SYMBOL='💎'
-
-# SWIFT
-SPACESHIP_SWIFT_SHOW_LOCAL=true
-SPACESHIP_SWIFT_SHOW_GLOBAL=false
-SPACESHIP_SWIFT_SYMBOL='🐦'
-
-# XCODE
-SPACESHIP_XCODE_SHOW_LOCAL=true
-SPACESHIP_XCODE_SHOW_GLOBAL=false
-SPACESHIP_XCODE_SYMBOL='🛠'
-
-# VENV
-SPACESHIP_VENV_SHOW=true
-
-# PYENV
-SPACESHIP_PYENV_SHOW=true
-SPACESHIP_PYENV_SYMBOL='🐍'
-
-# VI_MODE
-SPACESHIP_VI_MODE_SHOW=true
-SPACESHIP_VI_MODE_INSERT="[I]"
-SPACESHIP_VI_MODE_NORMAL="[N]"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -90,6 +44,9 @@ SPACESHIP_VI_MODE_NORMAL="[N]"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -99,14 +56,18 @@ SPACESHIP_VI_MODE_NORMAL="[N]"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
@@ -130,14 +91,43 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ctags="`brew --prefix`/bin/ctags"
+alias gotop='git rev-parse --show-toplevel > /dev/null && cd $(git rev-parse --show-toplevel)'
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+generate_ctags() {
+    ctags -R --languages=java --extra=f --c-kinds=+defgmst \
+        --exclude='*.class' \
+        --exclude='*.properties' \
+        --exclude='*.script' \
+        --exclude='*.page' \
+        --exclude='*.html' \
+        --exclude='*.sql' \
+        --exclude='node_modules/*' \
+        --exclude='.git/*' \
+        --exclude='test-automation/proteus/test-data/*' \
+        --exclude='package/documentation/*' \
+        --exclude='build/*' \
+        --exclude='./gradle/*' \
+        $1
+}
+
+export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"

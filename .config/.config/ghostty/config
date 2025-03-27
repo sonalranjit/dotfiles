@@ -1,0 +1,4 @@
+theme = xcodedarkhc
+font-family = JetBrains Mono
+shell-integration-features = no-cursor
+cursor-style = block

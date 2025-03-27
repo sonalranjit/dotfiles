@@ -1,9 +1,9 @@
 # This is Git's per-user configuration file.
 [include]
-    path = config.personal
+    path = gitconfig.personal
 
 [core]
-    editor = vim
+	editor = vim
 
 [color]
     ui = auto
@@ -20,19 +20,31 @@
     new = green
 
 [diff]
+    external = difft
+    tool = difftastic
     renames = copies
 
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+    difftool = true
+
 [alias]
-    st = status
-    hist = log --max-count=15 --pretty=format:'%h %Cgreen %ar %Creset | %s%C(yellow)%d %Cred[%an]' --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
-    diffs = difftool --no-prompt --extcmd icdiff
+	st = status
+	hist = log --max-count=1000 --pretty=format:'%h %Cgreen %ar %Creset | %s%C(yellow)%d %Cred[%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
     lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen [$1]++' | head -n 10 | awk -F' ~HEAD@{' '{printf(\" \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
     amend = commit --amend --reuse-message=HEAD
+    showchanges = "!f() { git show --pretty="" --name-only \"$1\"; }; f"
+    delete-local-merged = "!git fetch --prune && git branch --merged | egrep -v 'master|main|release*'  | xargs git branch -d"
 
 [branch]
     mergeoptions = --no-ff --no-commit
 
 [commit]
-    gpgsign = true
+    gpgsign = false 
